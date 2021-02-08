@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet"  href="{%  static  'css/about-css/style.css'  %}">
+{% if about %}
+{% for aboutme in about%}
+<div class="row mt-5">
+    <div class="col-md-5 col-xl-5 col-sm-5 col-xs-5" style="margin: 0 !important; padding: 0 !important;">
+        <img src="/uplaods/{{ aboutme.image_file}}"     style="width:100%;height:auto;max-height: 80vh;">
+    </div>
+
+    <div class="col-md-7 col-xl-7 col-sm-7 col-xs-7 bg-success text-white " > 
+        <div class="banner-text text-white mt-5" style="display: flex; justify-content: center;align-items: center;flex-direction: column; color:#fff;">
+            <h3 style="font-size:30px  ">{{aboutme.name}}</h3>
+            <h5 style="font-size:20px mt-3 mb-4">{{aboutme.job_title}}</h5>
+                <p>{{aboutme.description}}</p>
+            <div class="d-flex justify-content-between mt-4">
+                <div class="socials d-flex justify-content-between pl-5 " style="font-size: 30px;">
+                    <a href="#" class="fa fa-facebook text-white mr-4 " style="text-decoration: none;"></a>
+                    <a href="#" class="fa fa-instagram text-white mr-4" style="text-decoration: none;"></a>
+                    <a href="#" class="fa fa-linkedin text-white mr-4" style="text-decoration: none;"></a>
+                </div>
+                <div >
+                    <a href="" class="btn btn-primary btn-sm mr-5 text-white">More...</a>
+                </div>
+            </div>
+            
+
+        </div>
+        
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+
+<div class="row">
+        <div class="col-md-12 col-xl-12 col-sm-12 col-xs-12 ">
+            <h3 class="mt-5 mb-4">Experience and Experties</h3>
+        </div>
+    {% if experties %}
+    {% for expert in experties %}
+            <div class="col-md-3 col-xl-3 col-sm-6 col-xs-12 mb-5">
+                <div class="card img-fluid">
+                    <img class="card-img-top" src="/uplaods/{{expert.image_file}}" alt="Card image" style="width:100%; height:200px;">
+                    <div class="card-img-overlay" style="display: flex; justify-content: center;align-items: center;flex-direction: column; color:#fff;">
+                    <h4 class="card-title">{{expert.name}}</h4>
+                    </div>
+                </div>
+            </div>
+    {% endfor %}
+    {% else  %}
+    <div class="col-md-3 col-xl-3 col-sm-6 col-xs-12 mb-5">
+        <p class="text-danger text-center">* No Experience found!</p>
+    </div>
+    {% endif %}
+</div>
+
+    <div class="row">
+        <div class="col-md-12 col-xl-12 col-sm-12 col-xs-12 bg-light">
+            <h3 class="mb-3">Experiences</h3>
+        </div>
+            {% for tm in timelines %}
+            
+                <div class = "col-md-12 col-xl-12 col-sm-12 col-xs-12 bg-light">
+                    <div class="altTL">
+                        {% if tm.0 == 0 %}
+                        <div class="altEV">
+                            <strong class="edate">{{tm.1.date}}</strong>
+                            <h4>{{tm.1.title}}</h4>
+                            <p class="etxt">{{tm.1.details}} </p>
+                        </div>
+                        {% else %} 
+                        <div class="altEV right">
+                            <strong class="edate">{{tm.1.date}}</strong>
+                            <h4>{{tm.1.title}}</h4>
+                            <p class="etxt">{{tm.1.details}}</p>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
+
+

@@ -1,0 +1,9 @@
+{% extends 'siteadmin/base.html' %}
+{% block content %}
+
+<h1>This is List of Users</h1>
+{% for user in users %}
+    <h2>{{ user }}</h2>
+
+{% endfor %}
+{% endblock %}

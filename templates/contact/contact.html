@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static%}
+{%load crispy_forms_tags %}
+{% block content %}
+{% comment %} <script>
+function validateForm() {
+  var x = document.forms["contactForm"]["name"]["email"]["job_title"]["message"].value;
+  if (x == "") {
+    alert("Fields must be filled out");
+    return false;
+  }
+}
+</script> {% endcomment %}
+<div class="container mt-5">
+
+<h3 style="font-size:25px">Contact Me</h3>
+    <div class="row mb-5">
+        <div class="col-md-7 col-xl-7 col-sm-7 col-xs-7 ">
+            <img src="{% static 'images/contact_me.jpg' %}"  style="width:100%;height:auto;max-height: 70vh;">
+        </div>
+
+        <div class="col-md-5 col-xl-5 col-sm-5 col-xs-5 border">
+
+                <div class="banner-text  mt-2 " style="width:100%;height:auto;max-height: 70vh;">
+                    <h3 style="font-size:20px"> Send Me Message</h3>
+                    <p style="font-size:15px">Get daily newsletter from Me and My team about the latest news in the industry! Have queries send message directly!</p>
+                    <form action= "{% url 'contact_me' %}"  method="POST" name = "contactForm" onsubmit="return validateForm()">
+                    {% csrf_token %}
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" name = "name" placeholder="Full Name +" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" name = "email" aria-describedby="emailHelp" placeholder="Email +" required>
+                        </div>
+                            <div class="form-group">
+                            <input type="text" class="form-control" id="job_title" name = "job_title" placeholder="Job Title +" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="message" name = "message" rows="3" placeholder="Write your message" required></textarea>
+                        </div>
+
+                        <button type="submit" value="Submit" class="btn btn-danger btn-lg btn-block">Send Message</button>
+                
+                
+                    </form>
+                </div>
+
+                {% comment %} <form action="" method="post" autocomplete="off" enctype="multipart/form-data" >
+                    {% csrf_token %}
+                    {{form.full_name|as_crispy_field}}
+                    {{form.job_title|as_crispy_field}}
+                    {{form.email|as_crispy_field}}
+                    {{form.message|as_crispy_field}}
+                    
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-success btn-block btn-lg"> <i class="fas fa-database"></i>Submit</button>
+                        </div>
+
+                    </div>
+                    
+                </form> {% endcomment %}
+        </div>
+    </div>
+</div>
+
+{% endblock content%}

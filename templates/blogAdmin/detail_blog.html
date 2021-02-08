@@ -1,0 +1,21 @@
+{% extends 'siteadmin/base.html' %}
+{% load static %}
+{% block content %}
+<h1>Blog</h1>
+{% if blog %}
+<div class="row " >     
+    <div class="col-md-12 col-xl-12 col-sm-12 col-xs-12 ">
+
+        <img class="card-img-top" src="/uplaods/{{blog.image_file}}" alt="Card image" >
+        <h4 class="card-title">{{blog.title}}</h4>
+        <p>{{blog.category}}</p>
+        <p >{{blog.owner}}</p>
+        <p>{{blog.description}}</p>
+        <a href="{% url 'admin_update_experience' blog.id%}" class="btn btn-primary btn-sm ">Edit</a>
+        <a href="{% url 'admin_delete_blog' blog.id%}" class="btn btn-danger btn-sm ">Delete</a>
+
+    </div> 
+</div>
+        {% endif %}
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'siteadmin/base.html' %}
+{% block content %}
+
+<table class="table table-borderless">
+    <thread class="border-bottom font-weight-bold">
+        <tr>
+            <td>Full Name</td>
+            <td>Job Title</td>
+            <td>Email</td>
+            <td>Message</td>
+        </tr>
+    </thread>
+    <tbody>
+        {% for contact in contacts %}
+            <tr>
+                <td>{{contact.full_name}}</td>
+                <td>{{contact.job_title}}</td>
+                <td>{{contact.email}}</td>
+                <td>{{contact.message}}</td>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

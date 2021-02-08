@@ -1,0 +1,22 @@
+{% extends 'siteadmin/base.html' %}
+{% load static %}
+{% block content %}
+<h1>This is detail of Expert.</h1>
+{% if experties %}
+
+<div class="row " >     
+    <div class="col-md-12 col-xl-12 col-sm-12 col-xs-12 ">
+            <h4 class="card-title">{{experties.title}}</h4>
+            <p>{{experties.category}}</p>
+            <img class="card-img-top" src="/uplaods/{{experties.image_file}}" alt="Card image" >
+            <h4 class="card-title">{{experties.name}}</h4>
+            
+            <a href="{% url 'admin_update_expert' experties.id%}" class="btn btn-primary btn-sm ">Edit</a>
+            <a href="{% url 'admin_delete_expert' experties.id %}" class="btn btn-danger btn-sm">Delete</a>
+
+        
+    </div> 
+</div>
+        {% endif %}
+
+{% endblock %}

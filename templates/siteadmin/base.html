@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link href=" {% static 'siteadmin/css/styles.css' %}" rel="stylesheet" >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 col-xl-3 col-sm-3 col-xs-3" style="width:100%;padding:0px; margin: 0px;">
+            <div class ="wrapper " >
+                <div class="sidebar" >
+                    <h2>Sidebar</h2>
+                    <ul class="ml-4">
+                        <li><a href="{% url 'dashboard' %}"><i class="fas fa-chart-line"></i>Dashboard</a></li>
+                        <li><a href="{% url 'admin_list_home' %}"><i class="fas fa-home"></i>Home</a></li>
+                        <li><a href="{% url 'admin_list_project' %}"><i class="fas fa-tasks"></i>Projects</a></li>
+                        <li><a href="{% url 'admin_list_blog' %}"><i class="fas fa-newspaper"></i>Blogs</a></li>
+                        <li><a href="{% url 'admin_about_me' %}"><i class="fas fa-info"></i>About-Me</a></li>
+                        <li><a href="{% url 'contact' %}"><i class="fas fa-phone-volume"></i>Contact</a></li>
+                        <li><a href="{% url 'users' %}"><i class="fas fa-user"></i>Users</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    
+        <div class="col-md-9 col-xl-9 col-sm-9 col-xs-9" style="width:100%;padding:0px; margin: 0px;">
+            <div class="panel" >
+                <div class="shadow" >
+                    <ul  class="pt-5 pb-5 pr-5" style="display: flex;flex-direction: row;justify-content: flex-end;">
+                        <li ><a href="{% url 'home_page' %}" class="text-uppercase">Visit Site</a></li>
+                        <li><a href="{% url 'change_password' %}" class="ml-4 text-uppercase" >Change Password</a></li>
+                        <li><a href="{% url 'logoutuser'%}" class="ml-4 text-uppercase text-danger text-decoration-none">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        
+            <div class="mr-5 ml-5" >
+                {% block content %}
+                {% endblock content%}
+            </div>
+        </div>
+        </div> 
+
+{% block customJS %}
+
+
+{% endblock %}
+</body>
+</html>
