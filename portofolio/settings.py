@@ -12,9 +12,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '^h+i*3(o2a_c-q7rb5#b^0dz=86!+(3i*2oc=z6$@lr12vwzm&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-ALLOWED_HOSTS = []
-#ALLOWED_HOSTS = ["https://www.pythonanywhere.com",]
+DEBUG = False
+ALLOWED_HOSTS = ["https://www.pythonanywhere.com",]
 
 LOGIN_URL = 'loginuser'
 
